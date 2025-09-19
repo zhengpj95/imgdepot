@@ -81,6 +81,8 @@ https://zhengpj95.github.io/imgdepot/js/prototype5.png
 
 https://zhengpj95.github.io/imgdepot/layaair/layaair_split_png.png
 
+https://zhengpj95.github.io/imgdepot/layaair/layaair_split_texture_error.png
+
 https://zhengpj95.github.io/imgdepot/leetcode/2020-09-30_16-18-38.png
 
 https://zhengpj95.github.io/imgdepot/leetcode/2020-10-23_11-33-07.png
