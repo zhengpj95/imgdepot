@@ -45,16 +45,23 @@ walkSync(url, list, ".png");
 const urlAry = ["# img depot"];
 urlAry.push("## 能力介绍");
 for (const image of featuredImages) {
-  urlAry.push(`![${path.basename(image, ".png")}](${replaceUrl}/${image})`);
+  urlAry.push(`![${path.basename(image, ".png")}](${replaceUrl}/${image.replaceAll(" ", "%20")})`);
 }
 
 urlAry.push("## 图片列表");
 
+let currentFolder = "";
 for (let item of list) {
   if (featuredImages.includes(path.basename(item))) {
     continue;
   }
-  item = path.join(item).replace(url, replaceUrl).replaceAll("\\", "/");
+  const relativeFolder = path.relative(url, path.dirname(item)).replaceAll("\\", "/");
+  const folderName = relativeFolder === "." ? "根目录" : relativeFolder;
+  if (folderName !== currentFolder) {
+    urlAry.push(`### ${folderName}`);
+    currentFolder = folderName;
+  }
+  item = path.join(item).replace(url, replaceUrl).replaceAll("\\", "/").replaceAll(" ", "%20");
   urlAry.push(item);
   // console.log(item);
 }
